@@ -66,7 +66,7 @@ namespace BalsamiqFlowOverview
 </defs>");
 			foreach (var n in this.screens)
 			{
-				foreach (var link in n.linstToScreens)
+				foreach (var link in n.linksToScreens)
 				{
 					var p = link.screen.pos;
 					sb.AppendLine($@"<path
@@ -109,7 +109,7 @@ namespace BalsamiqFlowOverview
 
 			foreach (var s in screens)
 			{
-				foreach (var link in s.linstToScreens)
+				foreach (var link in s.linksToScreens)
 				{
 					var s2 = link.screen;
 					sb.AppendLine($"	{s.name}->{s2.name}[label = \"{link.linkName}\"]");

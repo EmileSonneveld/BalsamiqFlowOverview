@@ -16,8 +16,17 @@ namespace BalsamiqFlowOverview
 
 		static void Main(string[] args)
 		{
-			var conn =
-new SQLiteConnection("Data Source=C:/Users/emill/Dropbox (Persoonlijk)/slimmerWorden/2018-2019-Semester1/CMDM/PROJECT/balsamiq_mockups.bmpr;Version=3;");
+			string path = null;
+			if (args.Length >= 1)
+				path = args[0];
+			else
+			{
+				Console.WriteLine("No Argument specified. Using default path.");
+				path = "C:/Users/emill/Dropbox (Persoonlijk)/slimmerWorden/2018-2019-Semester1/CMDM/PROJECT/balsamiq_mockups.bmpr";
+			}
+			Console.WriteLine("Path: " + path);
+
+			var conn = new SQLiteConnection($"Data Source={path};Version=3;");
 			conn.Open();
 
 			var bmmls = new Dictionary<string, BalsamiqBmml>();
@@ -58,18 +67,22 @@ new SQLiteConnection("Data Source=C:/Users/emill/Dropbox (Persoonlijk)/slimmerWo
 					}
 				}
 
-				flowScreens[pair.Key].linstToScreens = lst;
+				flowScreens[pair.Key].linksToScreens = lst;
 
 			}
 
 			var flowOverview = new FlowOverview(flowScreens.Values.ToList());
 			flowOverview.CalculateLayout();
 			var svg = flowOverview.GetSvg();
+			Console.WriteLine("Outputting flow.svg");
 			File.WriteAllText("flow.svg", svg);
+
 			var graphViz = flowOverview.GetGraphViz();
+			Console.WriteLine("Outputting flow.txt");
 			File.WriteAllText("flow.txt", graphViz);
 			//Console.ReadLine();
 		}
+		
 
 		static List<Control> GetControls(BalsamiqBmml bmml)
 		{

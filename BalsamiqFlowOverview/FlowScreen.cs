@@ -20,6 +20,6 @@ namespace BalsamiqFlowOverview
 		}
 		public readonly string name;
 		public Point pos;
-		public List<FlowLink> linstToScreens;
+		public List<FlowLink> linksToScreens;
 	}
 }
