@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.IO;
 
 namespace BalsamiqFlowOverview
 {
 	static class Program
 	{
+		static string imagerUlPrefix = "data:image/png;base64,";
+
 		static void Main(string[] args)
 		{
 			var conn =
@@ -18,24 +21,52 @@ new SQLiteConnection("Data Source=C:/Users/emill/Dropbox (Persoonlijk)/slimmerWo
 			conn.Open();
 
 			var bmmls = new Dictionary<string, BalsamiqBmml>();
+			var flowScreens = new Dictionary<string, FlowScreen>();
+			var attrs = new Dictionary<string, BalsamiqAttributes>();
+
 			var command = new SQLiteCommand("SELECT * FROM RESOURCES;", conn);
 			var reader = command.ExecuteReader();
 			while (reader.Read())
 			{
+				var ID = (string)reader["ID"];
 				var attributes = JsonConvert.DeserializeObject<BalsamiqAttributes>((string)reader["ATTRIBUTES"]);
+				attrs.Add(ID, attributes);
 				if (attributes.mimeType != "text/vnd.balsamiq.bmml") continue;
 
 				var data = JsonConvert.DeserializeObject<BalsamiqBmml>((string)reader["DATA"]);
-				Console.WriteLine("ID: " + reader["ID"] + "\t  DATA: " + reader["DATA"]);
-				bmmls.Add((string)reader["ID"], data);
+				bmmls.Add(ID, data);
 
-				var cts = GetControls(data);
-				foreach (var c in cts)
-					foreach (var href in GetHrefs(c))
-						Debug.Assert(bmmls.Keys.Contains(href));
+				flowScreens.Add(ID, new FlowScreen(attributes.name));
 			}
 
-			Console.ReadLine();
+
+			foreach (var pair in bmmls)
+			{
+				var attr = attrs[pair.Key];
+
+				var lst = new List<FlowLink>();
+				var cts = GetControls(pair.Value);
+				foreach (var c in cts)
+				{
+					var controlText = c.properties?.text;
+					foreach (var href in GetHrefs(c))
+					{
+						var fl = new FlowLink();
+						fl.linkName = controlText;
+						fl.screen = flowScreens[href];
+						lst.Add(fl);
+					}
+				}
+
+				flowScreens[pair.Key].linstToScreens = lst;
+
+			}
+
+			var flowOverview = new FlowOverview(flowScreens.Values.ToList());
+			flowOverview.CalculateLayout();
+			var svg = flowOverview.GetSvg();
+			File.WriteAllText("flow.svg", svg);
+			//Console.ReadLine();
 		}
 
 		static List<Control> GetControls(BalsamiqBmml bmml)

@@ -138,8 +138,8 @@
                     "measuredH": "222",
                     "measuredW": "252",
                     "typeID": "Map",
-                    "x": "1466",
-                    "y": "446",
+                    "x": "1380",
+                    "y": "570",
                     "zOrder": "8"
                 },
                 {
@@ -183,12 +183,30 @@
                     "measuredH": "27",
                     "measuredW": "63",
                     "properties": {
+                        "href": {
+                            "ID": "1231B7D8-1D39-4C73-32CC-506861015E17"
+                        },
                         "text": "Button"
                     },
                     "typeID": "Button",
                     "x": "1418",
                     "y": "264",
                     "zOrder": "12"
+                },
+                {
+                    "ID": "13",
+                    "measuredH": "27",
+                    "measuredW": "63",
+                    "properties": {
+                        "href": {
+                            "URL": "http://emilesonneveld.be"
+                        },
+                        "text": "Button"
+                    },
+                    "typeID": "Button",
+                    "x": "1748",
+                    "y": "270",
+                    "zOrder": "13"
                 }
             ]
         },
