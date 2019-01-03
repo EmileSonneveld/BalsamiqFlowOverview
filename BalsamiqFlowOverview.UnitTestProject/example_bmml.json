@@ -1,0 +1,201 @@
+{
+    "mockup": {
+        "controls": {
+            "control": [
+                {
+                    "ID": "0",
+                    "measuredH": "310",
+                    "measuredW": "1524",
+                    "properties": {
+                        "hrefs": {
+                            "href": [
+                                {},
+                                {
+                                    "ID": "33915D60-C70E-A976-E11B-791060D6A925"
+                                },
+                                {
+                                    "ID": "C7039852-E190-13F0-0A52-5F781832C7E5"
+                                },
+                                {
+                                    "ID": "CA981B6F-B94F-7A4C-B9BA-5F6D3214A5D0"
+                                },
+                                {
+                                    "ID": "CD37F0A1-1BE0-17B2-86DF-5F7A1B186C23"
+                                },
+                                {
+                                    "ID": "1231B7D8-1D39-4C73-32CC-506861015E17"
+                                },
+                                {
+                                    "ID": "02983192-A6FE-FFC1-BE04-5F771AA9DEBC"
+                                },
+                                {
+                                    "ID": "8DDF8F28-D674-72BB-8CF2-5AD14E04EA64"
+                                },
+                                {
+                                    "ID": "9F71214B-9AB5-A360-C5E9-5ADE5E6260CF"
+                                },
+                                {
+                                    "ID": "9BCA4C53-DA10-5DD9-322B-5AE390612B83"
+                                },
+                                {
+                                    "ID": "E33E46FF-1F7B-57BA-5948-5AFD063C8758"
+                                },
+                                {
+                                    "ID": "793ACEF7-1804-9001-BE75-5F7176879288"
+                                },
+                                {
+                                    "ID": "F36631E6-122A-7DFE-C35E-5F74839BCA6B"
+                                }
+                            ]
+                        },
+                        "text": "modify_doctors_appointment\n- index\n- portal_patient\n-- patient_make_appointment\n- portal_secretary\n- modify_appointment\n-- modify_appointment_step2\n- acces_schedule\n-- select_doctor_from_department\n- show_schedule\n- select_patient_task\n- Make appointment online\n- information_submitted"
+                    },
+                    "typeID": "SiteMap",
+                    "x": "70",
+                    "y": "21",
+                    "zOrder": "0"
+                },
+                {
+                    "ID": "1",
+                    "measuredH": "80",
+                    "measuredW": "275",
+                    "typeID": "BlockOfText",
+                    "x": "558",
+                    "y": "602",
+                    "zOrder": "1"
+                },
+                {
+                    "ID": "2",
+                    "measuredH": "21",
+                    "measuredW": "211",
+                    "properties": {
+                        "text": "Home, Products, Xyz, Features"
+                    },
+                    "typeID": "BreadCrumbs",
+                    "x": "1130",
+                    "y": "570",
+                    "zOrder": "2"
+                },
+                {
+                    "ID": "3",
+                    "measuredH": "27",
+                    "measuredW": "93",
+                    "properties": {
+                        "text": "ComboBox"
+                    },
+                    "typeID": "ComboBox",
+                    "x": "338",
+                    "y": "710",
+                    "zOrder": "3"
+                },
+                {
+                    "ID": "4",
+                    "measuredH": "195",
+                    "measuredW": "344",
+                    "properties": {
+                        "text": "Name\\r(job title) ^, Age ^v, Nickname, Employee v\nGiacomo Guilizzoni\\rFounder & CEO, 40, Peldi, (o)\nMarco Botton\\rTuttofare, 38, , [x]\nMariah Maclachlan\\rBetter Half, 41, Patata, [-]\nValerie Liberty\\rHead Chef, :), Val, [x]\n[Data Grid Docs     ](https://docs.balsamiq.com/desktop/datagrids/), , , [ ]\n{65L, 0R, 35, 0C}"
+                    },
+                    "typeID": "DataGrid",
+                    "x": "236",
+                    "y": "594",
+                    "zOrder": "4"
+                },
+                {
+                    "ID": "5",
+                    "measuredH": "63",
+                    "measuredW": "64",
+                    "properties": {
+                        "text": "Icon Name"
+                    },
+                    "typeID": "IconLabel",
+                    "x": "1668",
+                    "y": "392",
+                    "zOrder": "5"
+                },
+                {
+                    "ID": "6",
+                    "measuredH": "24",
+                    "measuredW": "41",
+                    "properties": {
+                        "text": "3"
+                    },
+                    "typeID": "NumericStepper",
+                    "x": "1860",
+                    "y": "238",
+                    "zOrder": "6"
+                },
+                {
+                    "ID": "7",
+                    "measuredH": "180",
+                    "measuredW": "180",
+                    "typeID": "PieChart",
+                    "x": "1172",
+                    "y": "350",
+                    "zOrder": "7"
+                },
+                {
+                    "ID": "8",
+                    "measuredH": "222",
+                    "measuredW": "252",
+                    "typeID": "Map",
+                    "x": "1466",
+                    "y": "446",
+                    "zOrder": "8"
+                },
+                {
+                    "ID": "9",
+                    "measuredH": "400",
+                    "measuredW": "450",
+                    "properties": {
+                        "text": "A Web Page\nhttp://"
+                    },
+                    "typeID": "BrowserWindow",
+                    "x": "758",
+                    "y": "502",
+                    "zOrder": "9"
+                },
+                {
+                    "ID": "10",
+                    "measuredH": "139",
+                    "measuredW": "163",
+                    "properties": {
+                        "src": {
+                            "Anchor": -1,
+                            "ID": "6285E056-1B9D-8611-D1A0-15493063F0AA"
+                        }
+                    },
+                    "typeID": "Image",
+                    "x": "214",
+                    "y": "407",
+                    "zOrder": "10"
+                },
+                {
+                    "ID": "11",
+                    "measuredH": "27",
+                    "measuredW": "200",
+                    "typeID": "LineOfText",
+                    "x": "570",
+                    "y": "432",
+                    "zOrder": "11"
+                },
+                {
+                    "ID": "12",
+                    "measuredH": "27",
+                    "measuredW": "63",
+                    "properties": {
+                        "text": "Button"
+                    },
+                    "typeID": "Button",
+                    "x": "1418",
+                    "y": "264",
+                    "zOrder": "12"
+                }
+            ]
+        },
+        "measuredH": "902",
+        "measuredW": "1901",
+        "mockupH": "881",
+        "mockupW": "1831",
+        "version": "1.0"
+    }
+}

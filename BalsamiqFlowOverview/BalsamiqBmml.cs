@@ -4,10 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+#pragma warning disable IDE1006 // Naming Styles
+
+/// <summary>
+/// http://json2csharp.com/
+/// </summary>
 namespace BalsamiqFlowOverview
 {
 	public class Href
 	{
+		/// <summary>
+		/// GUID
+		/// </summary>
 		public string ID { get; set; }
 	}
 
@@ -32,13 +40,18 @@ namespace BalsamiqFlowOverview
 	public class Control
 	{
 		public string ID { get; set; }
-		public string measuredH { get; set; }
-		public string measuredW { get; set; }
+		public double measuredH { get; set; }
+		public double measuredW { get; set; }
 		public Properties properties { get; set; }
+		/// <summary>
+		/// SiteMap, BlockOfText, BreadCrumbs, ComboBox, DataGrid,
+		/// IconLabel, NumericStepper, PieChart, Map,
+		/// BrowserWindow, Image, LineOfText, Button
+		/// </summary>
 		public string typeID { get; set; }
-		public string x { get; set; }
-		public string y { get; set; }
-		public string zOrder { get; set; }
+		public double x { get; set; }
+		public double y { get; set; }
+		public double zOrder { get; set; }
 	}
 
 	public class Controls
@@ -49,15 +62,19 @@ namespace BalsamiqFlowOverview
 	public class Mockup
 	{
 		public Controls controls { get; set; }
-		public string measuredH { get; set; }
-		public string measuredW { get; set; }
-		public string mockupH { get; set; }
-		public string mockupW { get; set; }
-		public string version { get; set; }
+		public double measuredH { get; set; }
+		public double measuredW { get; set; }
+		public double mockupH { get; set; }
+		public double mockupW { get; set; }
+		public double version { get; set; }
 	}
 
-	public class RootObject
+	/// <summary>
+	/// RootObject
+	/// </summary>
+	public class BalsamiqBmml
 	{
 		public Mockup mockup { get; set; }
 	}
 }
+#pragma warning restore IDE1006 // Naming Styles
