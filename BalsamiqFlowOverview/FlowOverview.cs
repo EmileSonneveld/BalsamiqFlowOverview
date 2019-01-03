@@ -94,5 +94,30 @@ namespace BalsamiqFlowOverview
 
 			return sb.ToString();
 		}
+
+		/// <summary>
+		/// http://www.webgraphviz.com/
+		/// </summary>
+		public string GetGraphViz()
+		{
+			var sb = new StringBuilder();
+
+			sb.AppendLine("digraph BalsamiqFlowOverview {");
+			sb.AppendLine("	rankdir=LR;");
+			sb.AppendLine("	size=\"8, 5\"");
+			sb.AppendLine("	node [shape = rectangle];");
+
+			foreach (var s in screens)
+			{
+				foreach (var link in s.linstToScreens)
+				{
+					var s2 = link.screen;
+					sb.AppendLine($"	{s.name}->{s2.name}[label = \"{link.linkName}\"]");
+				}
+			}
+			sb.AppendLine("}");
+
+			return sb.ToString();
+		}
 	}
 }

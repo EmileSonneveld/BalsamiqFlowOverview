@@ -66,6 +66,8 @@ new SQLiteConnection("Data Source=C:/Users/emill/Dropbox (Persoonlijk)/slimmerWo
 			flowOverview.CalculateLayout();
 			var svg = flowOverview.GetSvg();
 			File.WriteAllText("flow.svg", svg);
+			var graphViz = flowOverview.GetGraphViz();
+			File.WriteAllText("flow.txt", graphViz);
 			//Console.ReadLine();
 		}
 
