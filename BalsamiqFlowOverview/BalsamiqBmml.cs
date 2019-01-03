@@ -33,6 +33,7 @@ namespace BalsamiqFlowOverview
 	public class Properties
 	{
 		public Hrefs hrefs { get; set; }
+		public Href href { get; set; }
 		public string text { get; set; }
 		public Src src { get; set; }
 	}

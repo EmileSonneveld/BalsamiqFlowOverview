@@ -77,13 +77,19 @@ new SQLiteConnection("Data Source=C:/Users/emill/Dropbox (Persoonlijk)/slimmerWo
 		static List<string> GetHrefs(Control c)
 		{
 			var ret = new List<string>();
-			if (c.properties?.hrefs?.href == null) return ret;
 
-			foreach (var href in c.properties.hrefs.href)
+			if (!string.IsNullOrEmpty(c.properties?.href?.ID))
+				ret.Add(c.properties.href.ID);
+
+			/* Only used for index tree?
+			if (c.properties?.hrefs?.href != null)
 			{
-				if (!string.IsNullOrEmpty(href.ID))
-					ret.Add(href.ID);
-			}
+				foreach (var href in c.properties.hrefs.href)
+				{
+					if (!string.IsNullOrEmpty(href.ID))
+						ret.Add(href.ID);
+				}
+			}*/
 			return ret;
 		}
 
