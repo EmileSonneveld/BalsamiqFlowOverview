@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalsamiqFlowOverview", "BalsamiqFlowOverview\BalsamiqFlowOverview.csproj", "{4006BA37-03A9-4730-8464-5A4C74C98E98}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalsamiqFlowOverview.UnitTestProject", "BalsamiqFlowOverview.UnitTestProject\BalsamiqFlowOverview.UnitTestProject.csproj", "{B204513F-EAE3-48C8-A8DF-42EFABB8CBB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4006BA37-03A9-4730-8464-5A4C74C98E98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4006BA37-03A9-4730-8464-5A4C74C98E98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4006BA37-03A9-4730-8464-5A4C74C98E98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B204513F-EAE3-48C8-A8DF-42EFABB8CBB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B204513F-EAE3-48C8-A8DF-42EFABB8CBB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B204513F-EAE3-48C8-A8DF-42EFABB8CBB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B204513F-EAE3-48C8-A8DF-42EFABB8CBB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

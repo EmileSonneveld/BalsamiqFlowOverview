@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using Newtonsoft.Json;
 
 namespace BalsamiqFlowOverview
 {
@@ -14,6 +15,7 @@ namespace BalsamiqFlowOverview
 			var m_dbConnection =
 new SQLiteConnection("Data Source=C:/Users/emill/Dropbox (Persoonlijk)/slimmerWorden/2018-2019-Semester1/CMDM/PROJECT/balsamiq_mockups.bmpr;Version=3;");
 			m_dbConnection.Open();
+
 		}
 	}
 }
