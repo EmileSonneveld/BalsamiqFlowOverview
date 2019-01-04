@@ -111,7 +111,7 @@ namespace BalsamiqFlowOverview
 				foreach (var link in s.linksToScreens)
 				{
 					var s2 = link.screen;
-					sb.AppendLine($"	{s.name}->{s2.name}[label = \"{link.linkName}\"]");
+					sb.AppendLine($"	\"{s.name.Replace("\"", "\\\"")}\"->\"{s2.name}\"[label = \"{link.linkName}\"]");
 				}
 			}
 			sb.AppendLine("}");

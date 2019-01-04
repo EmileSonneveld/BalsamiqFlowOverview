@@ -82,7 +82,7 @@ namespace BalsamiqFlowOverview
 			File.WriteAllText("flow.txt", graphViz);
 			//Console.ReadLine();
 		}
-		
+
 
 		static List<Control> GetControls(BalsamiqBmml bmml)
 		{

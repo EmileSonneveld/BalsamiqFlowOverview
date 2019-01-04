@@ -15,7 +15,8 @@ namespace BalsamiqFlowOverview
 
 	class FlowScreen
 	{
-		public FlowScreen(string name) {
+		public FlowScreen(string name)
+		{
 			this.name = name;
 		}
 		public readonly string name;
