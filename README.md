@@ -1,19 +1,19 @@
 BalsamiqFlowOverview
 ====================
 
-Generate an overview the control flow from a Balsamiq document.
-It reads the Balsamiq database and generates an SVG, or a Grapviz file that in its turn can be converted to an image.
+This tool generates an overview of the control flow from a Balsamiq document.
+It reads the Balsamiq database and generates an SVG and a Grapviz file that in its turn can be converted to an image.
 
 [![cover_photo](https://github.com/EmileSonneveld/BalsamiqFlowOverview/blob/master/example_grapviz.svg)](https://gitcdn.link/repo/EmileSonneveld/BalsamiqFlowOverview/master/example_grapviz.svg)
 
-Check out the releases tab on GitHub to download the command line version!
-Example on how to run the application:
-BalsamiqFlowOverview.exe "C:\path\to\balsamiq_mockups.bmpr"
+Check out the releases tab on GitHub to download the command line version.
+Run the tool like this:
+```BalsamiqFlowOverview.exe "C:\path\to\balsamiq_mockups.bmpr"```
 
-This should output 2 files: flow.svg and flow.txt
-The content from flow.txt can be converted here: http://www.webgraphviz.com/
+This should output 2 files: `flow.svg` and `flow.txt`
+The content from `flow.txt` can be converted here: http://www.webgraphviz.com/
 
-Example of the flow.txt content:
+Example of the `flow.txt` content:
 ```
 digraph BalsamiqFlowOverview {
 	rankdir=LR;
