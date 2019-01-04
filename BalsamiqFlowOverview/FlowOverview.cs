@@ -104,7 +104,6 @@ namespace BalsamiqFlowOverview
 
 			sb.AppendLine("digraph BalsamiqFlowOverview {");
 			sb.AppendLine("	rankdir=LR;");
-			sb.AppendLine("	size=\"8, 5\"");
 			sb.AppendLine("	node [shape = rectangle];");
 
 			foreach (var s in screens)
