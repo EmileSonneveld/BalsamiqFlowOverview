@@ -1,130 +1,189 @@
-<svg width="576pt" height="138pt" viewBox="0.00 0.00 576.00 138.44" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph1" class="graph" transform="scale(0.463023 0.463023) rotate(0) translate(4 295)">
+<svg width="576pt" height="58pt" viewBox="0.00 0.00 576.00 58.01" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph1" class="graph" transform="scale(0.253521 0.253521) rotate(0) translate(4 224.8)">
 <title>BalsamiqFlowOverview</title>
-<polygon fill="white" stroke="white" points="-4,5 -4,-295 1241,-295 1241,5 -4,5"></polygon>
+<polygon fill="white" stroke="white" points="-4,5 -4,-224.8 2269,-224.8 2269,5 -4,5"></polygon>
 <!-- modify_appointment -->
 <g id="node1" class="node"><title>modify_appointment</title>
-<polygon fill="none" stroke="black" points="408.934,-63 275.066,-63 275.066,-27 408.934,-27 408.934,-63"></polygon>
-<text text-anchor="middle" x="342" y="-40.8" font-family="Times,serif" font-size="14.00">modify_appointment</text>
+<polygon fill="none" stroke="black" points="391.934,-36 258.066,-36 258.066,0 391.934,0 391.934,-36"></polygon>
+<text text-anchor="middle" x="325" y="-13.8" font-family="Times,serif" font-size="14.00">modify_appointment</text>
 </g>
 <!-- modify_appointment_step2 -->
 <g id="node3" class="node"><title>modify_appointment_step2</title>
-<polygon fill="none" stroke="black" points="671.983,-63 502.017,-63 502.017,-27 671.983,-27 671.983,-63"></polygon>
-<text text-anchor="middle" x="587" y="-40.8" font-family="Times,serif" font-size="14.00">modify_appointment_step2</text>
+<polygon fill="none" stroke="black" points="725.983,-36 556.017,-36 556.017,0 725.983,0 725.983,-36"></polygon>
+<text text-anchor="middle" x="641" y="-13.8" font-family="Times,serif" font-size="14.00">modify_appointment_step2</text>
 </g>
 <!-- modify_appointment&#45;&gt;modify_appointment_step2 -->
 <g id="edge2" class="edge"><title>modify_appointment-&gt;modify_appointment_step2</title>
-<path fill="none" stroke="black" d="M408.759,-45C434.297,-45 464.029,-45 491.763,-45"></path>
-<polygon fill="black" stroke="black" points="491.879,-48.5001 501.879,-45 491.879,-41.5001 491.879,-48.5001"></polygon>
-<text text-anchor="middle" x="464" y="-49.2" font-family="Times,serif" font-size="14.00">Next &gt;</text>
+<path fill="none" stroke="black" d="M391.825,-18C436.409,-18 496.005,-18 545.622,-18"></path>
+<polygon fill="black" stroke="black" points="545.726,-21.5001 555.726,-18 545.726,-14.5001 545.726,-21.5001"></polygon>
+<text text-anchor="middle" x="474" y="-22.2" font-family="Times,serif" font-size="14.00">Next &gt;</text>
 </g>
 <!-- information_submitted -->
-<g id="node15" class="node"><title>information_submitted</title>
-<polygon fill="none" stroke="black" points="986.32,-89 841.68,-89 841.68,-53 986.32,-53 986.32,-89"></polygon>
-<text text-anchor="middle" x="914" y="-66.8" font-family="Times,serif" font-size="14.00">information_submitted</text>
+<g id="node11" class="node"><title>information_submitted</title>
+<polygon fill="none" stroke="black" points="970.32,-36 825.68,-36 825.68,0 970.32,0 970.32,-36"></polygon>
+<text text-anchor="middle" x="898" y="-13.8" font-family="Times,serif" font-size="14.00">information_submitted</text>
 </g>
 <!-- modify_appointment_step2&#45;&gt;information_submitted -->
-<g id="edge14" class="edge"><title>modify_appointment_step2-&gt;information_submitted</title>
-<path fill="none" stroke="black" d="M672.022,-41.5224C710.521,-40.9435 756.684,-41.6762 798,-46.2 808.992,-47.4035 820.478,-49.2072 831.758,-51.3034"></path>
-<polygon fill="black" stroke="black" points="831.116,-54.7441 841.6,-53.2131 832.45,-47.8722 831.116,-54.7441"></polygon>
-<text text-anchor="middle" x="744" y="-51.2" font-family="Times,serif" font-size="14.00">Done</text>
+<g id="edge16" class="edge"><title>modify_appointment_step2-&gt;information_submitted</title>
+<path fill="none" stroke="black" d="M726.203,-18C754.886,-18 786.887,-18 815.365,-18"></path>
+<polygon fill="black" stroke="black" points="815.685,-21.5001 825.685,-18 815.685,-14.5001 815.685,-21.5001"></polygon>
+<text text-anchor="middle" x="776" y="-22.2" font-family="Times,serif" font-size="14.00">Done</text>
 </g>
 <!-- acces_schedule -->
 <g id="node4" class="node"><title>acces_schedule</title>
-<polygon fill="none" stroke="black" points="638.282,-183 535.718,-183 535.718,-147 638.282,-147 638.282,-183"></polygon>
-<text text-anchor="middle" x="587" y="-160.8" font-family="Times,serif" font-size="14.00">acces_schedule</text>
+<polygon fill="none" stroke="black" points="1892.28,-152 1789.72,-152 1789.72,-116 1892.28,-116 1892.28,-152"></polygon>
+<text text-anchor="middle" x="1841" y="-129.8" font-family="Times,serif" font-size="14.00">acces_schedule</text>
 </g>
 <!-- select_doctor_from_department -->
 <g id="node6" class="node"><title>select_doctor_from_department</title>
-<polygon fill="none" stroke="black" points="1011.32,-156 816.677,-156 816.677,-120 1011.32,-120 1011.32,-156"></polygon>
-<text text-anchor="middle" x="914" y="-133.8" font-family="Times,serif" font-size="14.00">select_doctor_from_department</text>
+<polygon fill="none" stroke="black" points="2263.32,-128 2068.68,-128 2068.68,-92 2263.32,-92 2263.32,-128"></polygon>
+<text text-anchor="middle" x="2166" y="-105.8" font-family="Times,serif" font-size="14.00">select_doctor_from_department</text>
 </g>
 <!-- acces_schedule&#45;&gt;select_doctor_from_department -->
 <g id="edge4" class="edge"><title>acces_schedule-&gt;select_doctor_from_department</title>
-<path fill="none" stroke="black" d="M638.425,-160.811C683.165,-157.094 750.004,-151.541 806.534,-146.845"></path>
-<polygon fill="black" stroke="black" points="806.922,-150.325 816.597,-146.009 806.342,-143.349 806.922,-150.325"></polygon>
-<text text-anchor="middle" x="744" y="-161.2" font-family="Times,serif" font-size="14.00">Submit department</text>
-</g>
-<!-- show_schedule -->
-<g id="node8" class="node"><title>show_schedule</title>
-<polygon fill="none" stroke="black" points="1235.53,-156 1134.47,-156 1134.47,-120 1235.53,-120 1235.53,-156"></polygon>
-<text text-anchor="middle" x="1185" y="-133.8" font-family="Times,serif" font-size="14.00">show_schedule</text>
-</g>
-<!-- select_doctor_from_department&#45;&gt;show_schedule -->
-<g id="edge6" class="edge"><title>select_doctor_from_department-&gt;show_schedule</title>
-<path fill="none" stroke="black" d="M1011.36,-138C1048.9,-138 1090.77,-138 1123.87,-138"></path>
-<polygon fill="black" stroke="black" points="1124.29,-141.5 1134.29,-138 1124.29,-134.5 1124.29,-141.5"></polygon>
-<text text-anchor="middle" x="1073" y="-142.2" font-family="Times,serif" font-size="14.00">Use this doctor</text>
+<path fill="none" stroke="black" d="M1892.47,-130.25C1936.65,-126.967 2002.32,-122.088 2058.12,-117.942"></path>
+<polygon fill="black" stroke="black" points="2058.7,-121.408 2068.42,-117.176 2058.19,-114.427 2058.7,-121.408"></polygon>
+<text text-anchor="middle" x="1996" y="-131.2" font-family="Times,serif" font-size="14.00">Submit department</text>
 </g>
 <!-- patient_make_appointment -->
-<g id="node9" class="node"><title>patient_make_appointment</title>
-<polygon fill="none" stroke="black" points="426.413,-237 257.587,-237 257.587,-201 426.413,-201 426.413,-237"></polygon>
-<text text-anchor="middle" x="342" y="-214.8" font-family="Times,serif" font-size="14.00">patient_make_appointment</text>
+<g id="node7" class="node"><title>patient_make_appointment</title>
+<polygon fill="none" stroke="black" points="1548.41,-169 1379.59,-169 1379.59,-133 1548.41,-133 1548.41,-169"></polygon>
+<text text-anchor="middle" x="1464" y="-146.8" font-family="Times,serif" font-size="14.00">patient_make_appointment</text>
 </g>
-<!-- Make -->
-<g id="node11" class="node"><title>Make</title>
-<polygon fill="none" stroke="black" points="614,-237 560,-237 560,-201 614,-201 614,-237"></polygon>
-<text text-anchor="middle" x="587" y="-214.8" font-family="Times,serif" font-size="14.00">Make</text>
+<!-- make_appointment_online -->
+<g id="node9" class="node"><title>make_appointment_online</title>
+<polygon fill="none" stroke="black" points="1923.81,-98 1758.19,-98 1758.19,-62 1923.81,-62 1923.81,-98"></polygon>
+<text text-anchor="middle" x="1841" y="-75.8" font-family="Times,serif" font-size="14.00">make_appointment_online</text>
 </g>
-<!-- patient_make_appointment&#45;&gt;Make -->
-<g id="edge8" class="edge"><title>patient_make_appointment-&gt;Make</title>
-<path fill="none" stroke="black" d="M426.287,-219C468.255,-219 516.996,-219 549.489,-219"></path>
-<polygon fill="black" stroke="black" points="549.852,-222.5 559.852,-219 549.852,-215.5 549.852,-222.5"></polygon>
+<!-- patient_make_appointment&#45;&gt;make_appointment_online -->
+<g id="edge6" class="edge"><title>patient_make_appointment-&gt;make_appointment_online</title>
+<path fill="none" stroke="black" d="M1548.22,-135.243C1607.5,-124.02 1687.16,-108.937 1748.27,-97.3672"></path>
+<polygon fill="black" stroke="black" points="1749.12,-100.768 1758.3,-95.4689 1747.82,-93.8903 1749.12,-100.768"></polygon>
+<text text-anchor="middle" x="1653" y="-135.2" font-family="Times,serif" font-size="14.00">Make appointment on this date</text>
 </g>
-<!-- appointment -->
-<g id="node12" class="node"><title>appointment</title>
-<polygon fill="none" stroke="black" points="95.9916,-291 10.0084,-291 10.0084,-255 95.9916,-255 95.9916,-291"></polygon>
-<text text-anchor="middle" x="53" y="-268.8" font-family="Times,serif" font-size="14.00">appointment</text>
+<!-- make_appointment_online&#45;&gt;select_doctor_from_department -->
+<g id="edge10" class="edge"><title>make_appointment_online-&gt;select_doctor_from_department</title>
+<path fill="none" stroke="black" d="M1924,-87.5388C1962.28,-91.0664 2008.48,-95.3336 2050,-99.2 2052.71,-99.4527 2055.46,-99.7091 2058.24,-99.9679"></path>
+<polygon fill="black" stroke="black" points="2058.09,-103.469 2068.37,-100.914 2058.74,-96.4995 2058.09,-103.469"></polygon>
+<text text-anchor="middle" x="1996" y="-104.2" font-family="Times,serif" font-size="14.00">Select doctor</text>
 </g>
-<!-- online -->
-<g id="node13" class="node"><title>online</title>
-<polygon fill="none" stroke="black" points="666.861,-123 507.139,-123 507.139,-87 666.861,-87 666.861,-123"></polygon>
-<text text-anchor="middle" x="587" y="-100.8" font-family="Times,serif" font-size="14.00">Make appointment online</text>
+<!-- make_appointment_online&#45;&gt;information_submitted -->
+<g id="edge8" class="edge"><title>make_appointment_online-&gt;information_submitted</title>
+<path fill="none" stroke="black" d="M1783.99,-61.9474C1769.73,-57.6977 1754.37,-53.4161 1740,-50 1655.69,-29.9597 1634.33,-23.5847 1548,-16 1344.39,1.88855 1103.47,-6.5786 980.345,-13.0324"></path>
+<polygon fill="black" stroke="black" points="980.043,-9.5434 970.244,-13.5713 980.416,-16.5335 980.043,-9.5434"></polygon>
+<text text-anchor="middle" x="1301" y="-11.2" font-family="Times,serif" font-size="14.00">Submit</text>
 </g>
-<!-- online&#45;&gt;select_doctor_from_department -->
-<g id="edge12" class="edge"><title>online-&gt;select_doctor_from_department</title>
-<path fill="none" stroke="black" d="M667.088,-113.031C708.924,-117.278 760.881,-122.554 806.242,-127.16"></path>
-<polygon fill="black" stroke="black" points="806.112,-130.665 816.414,-128.193 806.819,-123.7 806.112,-130.665"></polygon>
-<text text-anchor="middle" x="744" y="-130.2" font-family="Times,serif" font-size="14.00">Select doctor</text>
+<!-- patient_portal -->
+<g id="node14" class="node"><title>patient_portal</title>
+<polygon fill="none" stroke="black" points="1221.76,-133 1128.24,-133 1128.24,-97 1221.76,-97 1221.76,-133"></polygon>
+<text text-anchor="middle" x="1175" y="-110.8" font-family="Times,serif" font-size="14.00">patient_portal</text>
 </g>
-<!-- online&#45;&gt;information_submitted -->
-<g id="edge10" class="edge"><title>online-&gt;information_submitted</title>
-<path fill="none" stroke="black" d="M667.088,-96.7261C716.923,-91.5127 781.116,-84.7971 831.419,-79.5346"></path>
-<polygon fill="black" stroke="black" points="832.027,-82.9902 841.609,-78.4686 831.299,-76.0282 832.027,-82.9902"></polygon>
-<text text-anchor="middle" x="744" y="-99.2" font-family="Times,serif" font-size="14.00">Submit</text>
+<!-- make_appointment_online&#45;&gt;patient_portal -->
+<g id="edge12" class="edge"><title>make_appointment_online-&gt;patient_portal</title>
+<path fill="none" stroke="black" d="M1769.97,-98.0927C1765.67,-100.676 1761.62,-103.628 1758,-107 1742.54,-121.406 1756.68,-138.027 1740,-151 1606.86,-254.565 1530.65,-181.828 1362,-185 1307.79,-186.02 1289.62,-206.865 1240,-185 1219.91,-176.148 1203.39,-157.532 1192.17,-141.723"></path>
+<polygon fill="black" stroke="black" points="1194.98,-139.639 1186.49,-133.308 1189.18,-143.555 1194.98,-139.639"></polygon>
+<text text-anchor="middle" x="1464" y="-208.2" font-family="Times,serif" font-size="14.00">cancel</text>
 </g>
-<!-- portal_patient -->
-<g id="node18" class="node"><title>portal_patient</title>
-<polygon fill="none" stroke="black" points="99.7577,-237 6.24229,-237 6.24229,-201 99.7577,-201 99.7577,-237"></polygon>
-<text text-anchor="middle" x="53" y="-214.8" font-family="Times,serif" font-size="14.00">portal_patient</text>
+<!-- information_submitted&#45;&gt;patient_portal -->
+<g id="edge14" class="edge"><title>information_submitted-&gt;patient_portal</title>
+<path fill="none" stroke="black" d="M950.081,-36.0176C997.99,-52.9164 1069.44,-78.1182 1118.68,-95.4865"></path>
+<polygon fill="black" stroke="black" points="1117.62,-98.8252 1128.22,-98.851 1119.95,-92.2238 1117.62,-98.8252"></polygon>
+<text text-anchor="middle" x="1049" y="-96.2" font-family="Times,serif" font-size="14.00">Back to patient portal</text>
 </g>
-<!-- portal_patient&#45;&gt;patient_make_appointment -->
-<g id="edge16" class="edge"><title>portal_patient-&gt;patient_make_appointment</title>
-<path fill="none" stroke="black" d="M99.7934,-219C139.473,-219 198.133,-219 247.669,-219"></path>
-<polygon fill="black" stroke="black" points="247.768,-222.5 257.768,-219 247.768,-215.5 247.768,-222.5"></polygon>
-<text text-anchor="middle" x="182" y="-223.2" font-family="Times,serif" font-size="14.00">Make appointment</text>
+<!-- patient_portal&#45;&gt;patient_make_appointment -->
+<g id="edge28" class="edge"><title>patient_portal-&gt;patient_make_appointment</title>
+<path fill="none" stroke="black" d="M1199.52,-133.104C1211.05,-140.858 1225.55,-149.032 1240,-153 1281.56,-164.409 1329.14,-165.517 1369.65,-163.127"></path>
+<polygon fill="black" stroke="black" points="1370.04,-166.608 1379.79,-162.448 1369.58,-159.624 1370.04,-166.608"></polygon>
+<text text-anchor="middle" x="1301" y="-169.2" font-family="Times,serif" font-size="14.00">Make appointment</text>
+</g>
+<!-- patient_portal&#45;&gt;patient_make_appointment -->
+<g id="edge32" class="edge"><title>patient_portal-&gt;patient_make_appointment</title>
+<path fill="none" stroke="black" d="M1222,-118.072C1259.72,-120.876 1314.46,-125.592 1362,-132.2 1364.51,-132.549 1367.06,-132.918 1369.62,-133.302"></path>
+<polygon fill="black" stroke="black" points="1369.18,-136.775 1379.6,-134.857 1370.26,-129.859 1369.18,-136.775"></polygon>
+<text text-anchor="middle" x="1301" y="-137.2" font-family="Times,serif" font-size="14.00">View schedule</text>
+</g>
+<!-- patient_view_medical_file -->
+<g id="node29" class="node"><title>patient_view_medical_file</title>
+<polygon fill="none" stroke="black" points="1546.79,-115 1381.21,-115 1381.21,-79 1546.79,-79 1546.79,-115"></polygon>
+<text text-anchor="middle" x="1464" y="-92.8" font-family="Times,serif" font-size="14.00">patient_view_medical_file</text>
+</g>
+<!-- patient_portal&#45;&gt;patient_view_medical_file -->
+<g id="edge30" class="edge"><title>patient_portal-&gt;patient_view_medical_file</title>
+<path fill="none" stroke="black" d="M1221.8,-99.8452C1227.86,-98.3421 1234.04,-97.0573 1240,-96.2 1282.83,-90.0389 1330.78,-89.4105 1371.2,-90.658"></path>
+<polygon fill="black" stroke="black" points="1371.19,-94.1597 1381.31,-91.0133 1371.44,-87.1641 1371.19,-94.1597"></polygon>
+<text text-anchor="middle" x="1301" y="-101.2" font-family="Times,serif" font-size="14.00">View my medical file</text>
 </g>
 <!-- portal_secretary -->
-<g id="node20" class="node"><title>portal_secretary</title>
-<polygon fill="none" stroke="black" points="106.171,-90 -0.171338,-90 -0.171338,-54 106.171,-54 106.171,-90"></polygon>
-<text text-anchor="middle" x="53" y="-67.8" font-family="Times,serif" font-size="14.00">portal_secretary</text>
+<g id="node17" class="node"><title>portal_secretary</title>
+<polygon fill="none" stroke="black" points="106.171,-36 -0.171338,-36 -0.171338,0 106.171,0 106.171,-36"></polygon>
+<text text-anchor="middle" x="53" y="-13.8" font-family="Times,serif" font-size="14.00">portal_secretary</text>
 </g>
 <!-- portal_secretary&#45;&gt;modify_appointment -->
 <g id="edge18" class="edge"><title>portal_secretary-&gt;modify_appointment</title>
-<path fill="none" stroke="black" d="M106.307,-67.0792C150.701,-62.9027 214.979,-56.8556 265.046,-52.1455"></path>
-<polygon fill="black" stroke="black" points="265.552,-55.6135 275.18,-51.1921 264.896,-48.6442 265.552,-55.6135"></polygon>
-<text text-anchor="middle" x="182" y="-69.2" font-family="Times,serif" font-size="14.00">Modify appointment</text>
+<path fill="none" stroke="black" d="M106.379,-18C146.584,-18 202.675,-18 247.841,-18"></path>
+<polygon fill="black" stroke="black" points="247.89,-21.5001 257.89,-18 247.89,-14.5001 247.89,-21.5001"></polygon>
+<text text-anchor="middle" x="182" y="-22.2" font-family="Times,serif" font-size="14.00">Modify appointment</text>
 </g>
-<!-- index -->
-<g id="node22" class="node"><title>index</title>
-<polygon fill="none" stroke="black" points="80,-36 26,-36 26,0 80,0 80,-36"></polygon>
-<text text-anchor="middle" x="53" y="-13.8" font-family="Times,serif" font-size="14.00">index</text>
+<!-- patient_register -->
+<g id="node19" class="node"><title>patient_register</title>
+<polygon fill="none" stroke="black" points="104.577,-133 1.42277,-133 1.42277,-97 104.577,-97 104.577,-133"></polygon>
+<text text-anchor="middle" x="53" y="-110.8" font-family="Times,serif" font-size="14.00">patient_register</text>
 </g>
-<!-- index&#45;&gt;modify_appointment -->
-<g id="edge20" class="edge"><title>index-&gt;modify_appointment</title>
-<path fill="none" stroke="black" d="M80.1974,-20.1185C116.219,-23.0686 183.057,-28.6763 240,-34.2 248.2,-34.9955 256.771,-35.8603 265.304,-36.7426"></path>
-<polygon fill="black" stroke="black" points="264.971,-40.2267 275.28,-37.7834 265.697,-33.2645 264.971,-40.2267"></polygon>
-<text text-anchor="middle" x="182" y="-39.2" font-family="Times,serif" font-size="14.00">Button</text>
+<!-- account_registered -->
+<g id="node21" class="node"><title>account_registered</title>
+<polygon fill="none" stroke="black" points="385.726,-133 264.274,-133 264.274,-97 385.726,-97 385.726,-133"></polygon>
+<text text-anchor="middle" x="325" y="-110.8" font-family="Times,serif" font-size="14.00">account_registered</text>
+</g>
+<!-- patient_register&#45;&gt;account_registered -->
+<g id="edge20" class="edge"><title>patient_register-&gt;account_registered</title>
+<path fill="none" stroke="black" d="M104.785,-115C146.911,-115 207.251,-115 253.965,-115"></path>
+<polygon fill="black" stroke="black" points="254.015,-118.5 264.015,-115 254.015,-111.5 254.015,-118.5"></polygon>
+<text text-anchor="middle" x="182" y="-119.2" font-family="Times,serif" font-size="14.00">Register</text>
+</g>
+<!-- after_confirmation_mail -->
+<g id="node23" class="node"><title>after_confirmation_mail</title>
+<polygon fill="none" stroke="black" points="717.34,-133 564.66,-133 564.66,-97 717.34,-97 717.34,-133"></polygon>
+<text text-anchor="middle" x="641" y="-110.8" font-family="Times,serif" font-size="14.00">after_confirmation_mail</text>
+</g>
+<!-- account_registered&#45;&gt;after_confirmation_mail -->
+<g id="edge22" class="edge"><title>account_registered-&gt;after_confirmation_mail</title>
+<path fill="none" stroke="black" d="M385.8,-115C433.526,-115 501.007,-115 554.449,-115"></path>
+<polygon fill="black" stroke="black" points="554.598,-118.5 564.598,-115 554.598,-111.5 554.598,-118.5"></polygon>
+<text text-anchor="middle" x="474" y="-119.2" font-family="Times,serif" font-size="14.00">click confirmation link</text>
+</g>
+<!-- patient_login -->
+<g id="node25" class="node"><title>patient_login</title>
+<polygon fill="none" stroke="black" points="942.882,-133 853.118,-133 853.118,-97 942.882,-97 942.882,-133"></polygon>
+<text text-anchor="middle" x="898" y="-110.8" font-family="Times,serif" font-size="14.00">patient_login</text>
+</g>
+<!-- after_confirmation_mail&#45;&gt;patient_login -->
+<g id="edge24" class="edge"><title>after_confirmation_mail-&gt;patient_login</title>
+<path fill="none" stroke="black" d="M717.473,-115C757.574,-115 805.961,-115 842.393,-115"></path>
+<polygon fill="black" stroke="black" points="842.812,-118.5 852.812,-115 842.812,-111.5 842.812,-118.5"></polygon>
+<text text-anchor="middle" x="776" y="-119.2" font-family="Times,serif" font-size="14.00">Go to login</text>
+</g>
+<!-- patient_login&#45;&gt;patient_portal -->
+<g id="edge26" class="edge"><title>patient_login-&gt;patient_portal</title>
+<path fill="none" stroke="black" d="M943.184,-115C990.626,-115 1066.13,-115 1117.78,-115"></path>
+<polygon fill="black" stroke="black" points="1118.09,-118.5 1128.09,-115 1118.09,-111.5 1118.09,-118.5"></polygon>
+<text text-anchor="middle" x="1049" y="-119.2" font-family="Times,serif" font-size="14.00">Log in</text>
+</g>
+<!-- patient_view_medical_file&#45;&gt;patient_portal -->
+<g id="edge34" class="edge"><title>patient_view_medical_file-&gt;patient_portal</title>
+<path fill="none" stroke="black" d="M1411.83,-78.8969C1365.89,-65.4254 1297.09,-52.2051 1240,-70.2 1226.73,-74.3826 1213.82,-82.4063 1203.11,-90.5213"></path>
+<polygon fill="black" stroke="black" points="1200.66,-88.0012 1195.03,-96.9773 1205.03,-93.4703 1200.66,-88.0012"></polygon>
+<text text-anchor="middle" x="1301" y="-75.2" font-family="Times,serif" font-size="14.00">&lt;- Back</text>
+</g>
+<!-- patient_view_schedule -->
+<g id="node32" class="node"><title>patient_view_schedule</title>
+<polygon fill="none" stroke="black" points="1536.29,-61 1391.71,-61 1391.71,-25 1536.29,-25 1536.29,-61"></polygon>
+<text text-anchor="middle" x="1464" y="-38.8" font-family="Times,serif" font-size="14.00">patient_view_schedule</text>
+</g>
+<!-- patient_view_schedule&#45;&gt;make_appointment_online -->
+<g id="edge36" class="edge"><title>patient_view_schedule-&gt;make_appointment_online</title>
+<path fill="none" stroke="black" d="M1536.42,-50.0465C1596.43,-55.9675 1682.59,-64.4691 1747.8,-70.9034"></path>
+<polygon fill="black" stroke="black" points="1747.79,-74.4187 1758.08,-71.9176 1748.48,-67.4525 1747.79,-74.4187"></polygon>
+<text text-anchor="middle" x="1653" y="-75.2" font-family="Times,serif" font-size="14.00">Edit this appointment</text>
 </g>
 </g>
 </svg>

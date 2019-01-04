@@ -4,6 +4,8 @@ BalsamiqFlowOverview
 Generate an overview the control flow from a Balsamiq document.
 It reads the Balsamiq database and generates an SVG, or a Grapviz file that in its turn can be converted to an image.
 
+![cover_photo](https://github.com/EmileSonneveld/BalsamiqFlowOverview/blob/master/example_grapviz.svg)
+
 Check out the releases tab on GitHub to download the command line version!
 Example on how to run the application:
 BalsamiqFlowOverview.exe "C:\path\to\balsamiq_mockups.bmpr"
@@ -37,5 +39,4 @@ digraph BalsamiqFlowOverview {
 	patient_view_schedule->make_appointment_online[label = "Edit this appointment"]
 }
 ```
-Which webgraphviz transforms into:
-![cover_photo](https://github.com/EmileSonneveld/BalsamiqFlowOverview/blob/master/example_grapviz.svg)
+Which webgraphviz can transorm into an SVG like the image on top of this readme.
