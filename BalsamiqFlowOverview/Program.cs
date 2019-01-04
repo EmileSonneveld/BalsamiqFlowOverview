@@ -95,8 +95,7 @@ namespace BalsamiqFlowOverview
 
 			if (!string.IsNullOrEmpty(c.properties?.href?.ID))
 				ret.Add(c.properties.href.ID);
-
-			/* Only used for index tree?
+			
 			if (c.properties?.hrefs?.href != null)
 			{
 				foreach (var href in c.properties.hrefs.href)
@@ -104,7 +103,7 @@ namespace BalsamiqFlowOverview
 					if (!string.IsNullOrEmpty(href.ID))
 						ret.Add(href.ID);
 				}
-			}*/
+			}
 			return ret;
 		}
 
