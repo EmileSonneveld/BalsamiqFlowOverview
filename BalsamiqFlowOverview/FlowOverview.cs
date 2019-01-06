@@ -105,8 +105,9 @@ namespace BalsamiqFlowOverview
 			sb.AppendLine("# You can visualise this file here: http://webgraphviz.com");
 			sb.AppendLine("digraph BalsamiqFlowOverview {");
 			sb.AppendLine("	rankdir=LR;");
+			sb.AppendLine("#	concentrate = true;"); // User can uncomment
 			sb.AppendLine("	node [shape = rectangle, style=filled, color=\"0.650 0.200 1.000\"];");
-
+			
 			foreach (var s in screens)
 			{
 				foreach (var link in s.linksToScreens)
@@ -117,10 +118,10 @@ namespace BalsamiqFlowOverview
 					if (s2.linksToScreens.Find(l2 => l2.linkName == link.linkName && l2.screen == s) != null)
 					{
 						if (s.GetHashCode() < s2.GetHashCode())
-							sb.AppendLine($"	\"{s.name.Replace("\"", "\\\"")}\"->\"{s2.name}\"[label = \"{link.linkName}\", dir=\"both\"]");
+							sb.AppendLine($"	\"{s.name.Replace("\"", "\\\"")}\"->\"{s2.name}\" [label = \"{link.linkName}\", dir=both, penwidth=2]");
 					}
 					else
-						sb.AppendLine($"	\"{s.name.Replace("\"", "\\\"")}\"->\"{s2.name}\"[label = \"{link.linkName}\"]");
+						sb.AppendLine($"	\"{s.name.Replace("\"", "\\\"")}\"->\"{s2.name}\" [label = \"{link.linkName}\"]");
 				}
 				if (s.linksToScreens.Count == 0)
 				{
