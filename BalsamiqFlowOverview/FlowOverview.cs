@@ -101,7 +101,7 @@ namespace BalsamiqFlowOverview
 		public string GetGraphViz()
 		{
 			var sb = new StringBuilder();
-			
+
 			sb.AppendLine("# You can visualise this file here: http://webgraphviz.com");
 			sb.AppendLine("digraph BalsamiqFlowOverview {");
 			sb.AppendLine("	rankdir=LR;");
@@ -113,6 +113,10 @@ namespace BalsamiqFlowOverview
 				{
 					var s2 = link.screen;
 					sb.AppendLine($"	\"{s.name.Replace("\"", "\\\"")}\"->\"{s2.name}\"[label = \"{link.linkName}\"]");
+				}
+				if (s.linksToScreens.Count == 0)
+				{
+					sb.AppendLine($"	\"{s.name.Replace("\"", "\\\"")}\"");
 				}
 			}
 			sb.AppendLine("}");
