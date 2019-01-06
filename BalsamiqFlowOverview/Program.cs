@@ -41,6 +41,7 @@ namespace BalsamiqFlowOverview
 				var attributes = JsonConvert.DeserializeObject<BalsamiqAttributes>((string)reader["ATTRIBUTES"]);
 				attrs.Add(ID, attributes);
 				if (attributes.mimeType != "text/vnd.balsamiq.bmml") continue;
+				if (attributes.kind == "symbolLibrary") continue;
 
 				var data = JsonConvert.DeserializeObject<BalsamiqBmml>((string)reader["DATA"]);
 				bmmls.Add(ID, data);
@@ -64,7 +65,10 @@ namespace BalsamiqFlowOverview
 						{
 							var fl = new FlowLink();
 							fl.linkName = controlText;
-							fl.screen = flowScreens[href];
+							if (flowScreens.ContainsKey(href))
+								fl.screen = flowScreens[href];
+							else
+								fl.screen = new FlowScreen("Broken ref: "+href);
 							lst.Add(fl);
 						}
 					}

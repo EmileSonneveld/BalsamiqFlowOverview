@@ -112,7 +112,15 @@ namespace BalsamiqFlowOverview
 				foreach (var link in s.linksToScreens)
 				{
 					var s2 = link.screen;
-					sb.AppendLine($"	\"{s.name.Replace("\"", "\\\"")}\"->\"{s2.name}\"[label = \"{link.linkName}\"]");
+
+					// Check if link goes in both directions:
+					if (s2.linksToScreens.Find(l2 => l2.linkName == link.linkName && l2.screen == s) != null)
+					{
+						if (s.GetHashCode() < s2.GetHashCode())
+							sb.AppendLine($"	\"{s.name.Replace("\"", "\\\"")}\"->\"{s2.name}\"[label = \"{link.linkName}\", dir=\"both\"]");
+					}
+					else
+						sb.AppendLine($"	\"{s.name.Replace("\"", "\\\"")}\"->\"{s2.name}\"[label = \"{link.linkName}\"]");
 				}
 				if (s.linksToScreens.Count == 0)
 				{
