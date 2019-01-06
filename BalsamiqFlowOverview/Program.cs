@@ -113,6 +113,55 @@ namespace BalsamiqFlowOverview
 			return ret;
 		}
 
+		public static string SearchProgramWhileBubelingUpPath(string relPathFromParentList)
+		{
+			if (relPathFromParentList.StartsWith("/") || relPathFromParentList.StartsWith("\\"))
+				relPathFromParentList = relPathFromParentList.Substring(1);
+
+			DirectoryInfo di = new DirectoryInfo(Directory.GetCurrentDirectory());
+
+			while (di != null)
+			{
+				var absPath = di.FullName;
+				if (!absPath.EndsWith("/") && !absPath.EndsWith("\\"))
+					absPath += "\\";
+				absPath += relPathFromParentList;
+
+				if (File.Exists(absPath)) return absPath;
+				if (File.Exists(absPath + ".exe")) return absPath + ".exe";
+				//if (File.Exists(absPath + ".bat")) return absPath + ".bat";
+
+				di = di.Parent;
+			}
+			return null;
+			//throw new FileNotFoundException(relPathFromParentList + " not found");
+		}
+
+		public static string OverloadWindowsPath(string postfix)
+		{
+			if (postfix.StartsWith("/") || postfix.StartsWith("\\"))
+				postfix = postfix.Substring(1);
+
+			var ret = "";
+			DirectoryInfo di = new DirectoryInfo(Directory.GetCurrentDirectory());
+
+			while (di != null)
+			{
+				var absPath = di.FullName;
+				if (!absPath.EndsWith("/") && !absPath.EndsWith("\\"))
+					absPath += "\\";
+				absPath += postfix;
+
+				//Debug.WriteLine(absPath);
+				ret += ";" + absPath;
+				//AddToWindowsPath(absPath);
+
+				di = di.Parent;
+			}
+			return ret;
+		}
+
+
 		public static string GraphVizToSvg(string graphCode)
 		{
 			try
@@ -126,12 +175,23 @@ console.log(svg)
 				string fileName = System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".js";
 				File.WriteAllText(fileName, vizCode);
 
+				string nodePath = SearchProgramWhileBubelingUpPath("/nodejs/node");
+				if (string.IsNullOrEmpty(nodePath))
+				{
+					Console.WriteLine("Embedded ./nodejs/node not found. Resorting to node that has been added to system path.");
+					nodePath = "node";
+				}
+				else
+				{
+					Console.WriteLine("Found node here: " + nodePath);
+				}
+
 				// Start the child process.
 				Process p = new Process();
 				// Redirect the output stream of the child process.
 				p.StartInfo.UseShellExecute = false;
 				p.StartInfo.RedirectStandardOutput = true;
-				p.StartInfo.FileName = "node";
+				p.StartInfo.FileName = nodePath;
 				p.StartInfo.Arguments = fileName;
 				p.Start();
 				// Do not wait for the child process to exit before
