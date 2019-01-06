@@ -101,7 +101,8 @@ namespace BalsamiqFlowOverview
 		public string GetGraphViz()
 		{
 			var sb = new StringBuilder();
-
+			
+			sb.AppendLine("# You can visualise this file here: http://webgraphviz.com");
 			sb.AppendLine("digraph BalsamiqFlowOverview {");
 			sb.AppendLine("	rankdir=LR;");
 			sb.AppendLine("	node [shape = rectangle, style=filled, color=\"0.650 0.200 1.000\"];");
