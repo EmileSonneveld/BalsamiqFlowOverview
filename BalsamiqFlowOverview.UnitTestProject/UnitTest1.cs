@@ -67,5 +67,11 @@ namespace BalsamiqFlowOverview.UnitTestProject
 		}
 
 
+		[TestMethod]
+		public void Test_PathCombine()
+		{
+			Debug.Assert(Path.Combine(@"C:\Program Files") == "\"C:\\Program Files\"");
+		}
+
 	}
 }

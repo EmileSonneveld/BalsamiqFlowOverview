@@ -22,7 +22,7 @@ namespace BalsamiqFlowOverview
 			else
 			{
 				Console.WriteLine("No Argument specified. Using default path.");
-				path = "C:/Users/emill/Dropbox (Persoonlijk)/slimmerWorden/2018-2019-Semester1/CMDM/PROJECT/balsamiq_mockups.bmpr";
+				path = "C:/Users/emill/Dropbox (Persoonlijk)/slimmerWorden/2018-2019-Semester1/CMDM/PROJECT/DELIVERABLE_Emile_Maurin_Yassine/balsamiq_mockups.bmpr";
 			}
 			Console.WriteLine("Path: " + path);
 
@@ -68,7 +68,7 @@ namespace BalsamiqFlowOverview
 							if (flowScreens.ContainsKey(href))
 								fl.screen = flowScreens[href];
 							else
-								fl.screen = new FlowScreen("Broken ref: "+href);
+								fl.screen = new FlowScreen("Broken ref: " + href);
 							lst.Add(fl);
 						}
 					}
@@ -87,7 +87,7 @@ namespace BalsamiqFlowOverview
 			Console.WriteLine("Outputting flow.txt");
 			File.WriteAllText("flow.txt", graphViz);
 
-			var svg2 = GraphVizToSvg(graphViz);
+			var svg2 = GraphVizToSvgUsingNode(graphViz);
 			Console.WriteLine("Outputting flow_graph.svg");
 			File.WriteAllText("flow_graph.svg", svg2);
 			//Console.ReadLine();
@@ -132,7 +132,7 @@ namespace BalsamiqFlowOverview
 				absPath += relPathFromParentList;
 
 				if (File.Exists(absPath)) return absPath;
-				if (File.Exists(absPath + ".exe")) return absPath + ".exe";
+				if (File.Exists(absPath + ".exe")) return absPath; // + ".exe";
 				//if (File.Exists(absPath + ".bat")) return absPath + ".bat";
 
 				di = di.Parent;
@@ -170,7 +170,44 @@ namespace BalsamiqFlowOverview
 		{
 			try
 			{
-				var vizCode = File.ReadAllText("../../../BalsamiqFlowOverview/viz.js");
+				string fileName = System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".svg";
+				fileName = Path.Combine(fileName);
+				string tmpInputPath = System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".txt";
+				tmpInputPath = Path.Combine(tmpInputPath);
+				File.WriteAllText(tmpInputPath, graphCode);
+
+				var dot_path = SearchProgramWhileBubelingUpPath("graphviz-2.38-minimal/dot");
+				var arguments = tmpInputPath + " -Tsvg -v -o " + fileName;
+
+				// Start the child process.
+				Process p = new Process();
+				// Redirect the output stream of the child process.
+				p.StartInfo.UseShellExecute = false;
+				p.StartInfo.RedirectStandardOutput = true;
+				p.StartInfo.FileName = dot_path;
+				p.StartInfo.Arguments = arguments;
+				p.Start();
+				// Do not wait for the child process to exit before
+				// reading to the end of its redirected stream.
+				// p.WaitForExit();
+				// Read the output stream first and then wait.
+				string output = p.StandardOutput.ReadToEnd();
+				p.WaitForExit();
+				//return output;
+				return File.ReadAllText(fileName);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message + "\n\n");
+				return e.Message;
+			}
+		}
+		public static string GraphVizToSvgUsingNode(string graphCode)
+		{
+			try
+			{
+				var viz_path = SearchProgramWhileBubelingUpPath("/viz.js");
+				var vizCode = File.ReadAllText(viz_path);
 				vizCode += @"
 var data = `" + graphCode + @"`;
 var svg = this.Viz(data, 'svg');
