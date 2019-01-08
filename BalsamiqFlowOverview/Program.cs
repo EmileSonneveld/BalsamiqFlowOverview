@@ -87,7 +87,7 @@ namespace BalsamiqFlowOverview
 			Console.WriteLine("Outputting flow.txt");
 			File.WriteAllText("flow.txt", graphViz);
 
-			var svg2 = GraphVizToSvgUsingNode(graphViz);
+			var svg2 = GraphVizToSvg(graphViz);
 			Console.WriteLine("Outputting flow_graph.svg");
 			File.WriteAllText("flow_graph.svg", svg2);
 			//Console.ReadLine();
@@ -177,7 +177,8 @@ namespace BalsamiqFlowOverview
 				File.WriteAllText(tmpInputPath, graphCode);
 
 				var dot_path = SearchProgramWhileBubelingUpPath("graphviz-2.38-minimal/dot");
-				var arguments = tmpInputPath + " -Tsvg -v -o " + fileName;
+				// Add -v parameter to debug dot.exe
+				var arguments = tmpInputPath + " -Tsvg -o " + fileName;
 
 				// Start the child process.
 				Process p = new Process();
