@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Data.SQLite;
 using Newtonsoft.Json;
 using System.Diagnostics;
@@ -12,18 +11,15 @@ namespace BalsamiqFlowOverview
 {
 	public static class Program
 	{
-		static string imagerUlPrefix = "data:image/png;base64,";
-
-		static void Main(string[] args)
+		public static int Main(string[] args)
 		{
-			string path = null;
-			if (args.Length >= 1)
-				path = args[0];
-			else
+			if (args.Length < 1)
 			{
-				Console.WriteLine("No Argument specified. Using default path.");
-				path = "C:/Users/emill/Dropbox (Persoonlijk)/slimmerWorden/2018-2019-Semester1/CMDM/PROJECT/DELIVERABLE_Emile_Maurin_Yassine/balsamiq_mockups.bmpr";
+				Console.WriteLine("Run the tool like this:");
+				Console.WriteLine("```BalsamiqFlowOverview.exe \"C:\\path\\to\\balsamiq_mockups.bmpr\"```");
+				return -666;
 			}
+			string path = args[0];
 			Console.WriteLine("Path: " + path);
 
 			var conn = new SQLiteConnection($"Data Source={path};Version=3;");
@@ -91,6 +87,7 @@ namespace BalsamiqFlowOverview
 			Console.WriteLine("Outputting flow_graph.svg");
 			File.WriteAllText("flow_graph.svg", svg2);
 			//Console.ReadLine();
+			return 0;
 		}
 
 
@@ -133,12 +130,10 @@ namespace BalsamiqFlowOverview
 
 				if (File.Exists(absPath)) return absPath;
 				if (File.Exists(absPath + ".exe")) return absPath; // + ".exe";
-				//if (File.Exists(absPath + ".bat")) return absPath + ".bat";
 
 				di = di.Parent;
 			}
 			return null;
-			//throw new FileNotFoundException(relPathFromParentList + " not found");
 		}
 
 		public static string OverloadWindowsPath(string postfix)
@@ -156,9 +151,7 @@ namespace BalsamiqFlowOverview
 					absPath += "\\";
 				absPath += postfix;
 
-				//Debug.WriteLine(absPath);
 				ret += ";" + absPath;
-				//AddToWindowsPath(absPath);
 
 				di = di.Parent;
 			}
@@ -180,6 +173,8 @@ namespace BalsamiqFlowOverview
 				// Add -v parameter to debug dot.exe
 				var arguments = tmpInputPath + " -Tsvg -o " + fileName;
 
+				// Known warning, not a problem:
+				// Warning: Could not load "C:\Users\emill\dev\BalsamiqFlowOverview\graphviz-2.38-minimal\gvplugin_pango.dll" - can't open the module
 				// Start the child process.
 				Process p = new Process();
 				// Redirect the output stream of the child process.
@@ -194,7 +189,6 @@ namespace BalsamiqFlowOverview
 				// Read the output stream first and then wait.
 				string output = p.StandardOutput.ReadToEnd();
 				p.WaitForExit();
-				//return output;
 				return File.ReadAllText(fileName);
 			}
 			catch (Exception e)
