@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
+using System;
 using System.Diagnostics;
 using System.IO;
-using System.Collections.Generic;
 
 namespace BalsamiqFlowOverview.UnitTestProject
 {
@@ -17,7 +16,7 @@ namespace BalsamiqFlowOverview.UnitTestProject
 			var path = Path.Combine(repositoryRoot, "balsamiq_mockups.bmpr");
 			Assert.IsTrue(File.Exists(path));
 			var returnValue = Program.Main(new string[] { path });
-			Assert.AreEqual(returnValue, 0);
+			Assert.AreEqual(0, returnValue);
 		}
 
 		[TestMethod]

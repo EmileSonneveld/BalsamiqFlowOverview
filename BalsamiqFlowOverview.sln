@@ -1,11 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalsamiqFlowOverview", "BalsamiqFlowOverview\BalsamiqFlowOverview.csproj", "{4006BA37-03A9-4730-8464-5A4C74C98E98}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalsamiqFlowOverview.UnitTestProject", "BalsamiqFlowOverview.UnitTestProject\BalsamiqFlowOverview.UnitTestProject.csproj", "{B204513F-EAE3-48C8-A8DF-42EFABB8CBB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{57174C85-12B8-46C6-9159-6FC7A59736E8}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +29,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B67BC3AC-5073-4229-BF0C-41BD76374A8E}
 	EndGlobalSection
 EndGlobal

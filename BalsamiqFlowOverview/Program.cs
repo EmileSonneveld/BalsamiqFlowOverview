@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data.SQLite;
-using Newtonsoft.Json;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Text;
 
 namespace BalsamiqFlowOverview
 {
@@ -75,9 +75,6 @@ namespace BalsamiqFlowOverview
 
 			var flowOverview = new FlowOverview(flowScreens.Values.ToList());
 			flowOverview.CalculateLayout();
-			//var svg = flowOverview.GetSvg();
-			//Console.WriteLine("Outputting flow.svg");
-			//File.WriteAllText("flow.svg", svg);
 
 			var graphViz = flowOverview.GetGraphViz();
 			Console.WriteLine("Outputting flow.txt");
@@ -86,7 +83,6 @@ namespace BalsamiqFlowOverview
 			var svg2 = GraphVizToSvg(graphViz);
 			Console.WriteLine("Outputting flow_graph.svg");
 			File.WriteAllText("flow_graph.svg", svg2);
-			//Console.ReadLine();
 			return 0;
 		}
 
@@ -105,11 +101,9 @@ namespace BalsamiqFlowOverview
 
 			if (c.properties?.hrefs?.href != null)
 			{
-				foreach (var href in c.properties.hrefs.href)
-				{
-					if (!string.IsNullOrEmpty(href.ID))
-						ret.Add(href.ID);
-				}
+				ret.AddRange(from href in c.properties.hrefs.href
+							 where !string.IsNullOrEmpty(href.ID)
+							 select href.ID);
 			}
 			return ret;
 		}
@@ -129,7 +123,7 @@ namespace BalsamiqFlowOverview
 				absPath += relPathFromParentList;
 
 				if (File.Exists(absPath)) return absPath;
-				if (File.Exists(absPath + ".exe")) return absPath; // + ".exe";
+				if (File.Exists(absPath + ".exe")) return absPath; // could als .exe extention to absPath.
 
 				di = di.Parent;
 			}
@@ -141,7 +135,7 @@ namespace BalsamiqFlowOverview
 			if (postfix.StartsWith("/") || postfix.StartsWith("\\"))
 				postfix = postfix.Substring(1);
 
-			var ret = "";
+			var ret = new StringBuilder();
 			DirectoryInfo di = new DirectoryInfo(Directory.GetCurrentDirectory());
 
 			while (di != null)
@@ -151,11 +145,11 @@ namespace BalsamiqFlowOverview
 					absPath += "\\";
 				absPath += postfix;
 
-				ret += ";" + absPath;
+				ret.Append(";" + absPath);
 
 				di = di.Parent;
 			}
-			return ret;
+			return ret.ToString();
 		}
 
 
@@ -185,9 +179,8 @@ namespace BalsamiqFlowOverview
 				p.Start();
 				// Do not wait for the child process to exit before
 				// reading to the end of its redirected stream.
-				// p.WaitForExit();
 				// Read the output stream first and then wait.
-				string output = p.StandardOutput.ReadToEnd();
+				p.StandardOutput.ReadToEnd();
 				p.WaitForExit();
 				return File.ReadAllText(fileName);
 			}
@@ -232,7 +225,6 @@ console.log(svg)
 				p.Start();
 				// Do not wait for the child process to exit before
 				// reading to the end of its redirected stream.
-				// p.WaitForExit();
 				// Read the output stream first and then wait.
 				string output = p.StandardOutput.ReadToEnd();
 				p.WaitForExit();

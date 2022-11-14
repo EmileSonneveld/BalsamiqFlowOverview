@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# S2479: Whitespace and control characters in string literals should be explicit
+dotnet_diagnostic.S2479.severity = silent

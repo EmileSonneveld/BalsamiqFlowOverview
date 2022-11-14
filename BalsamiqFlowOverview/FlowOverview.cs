@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Security;
 using System.Text;
-using System.Threading.Tasks;
+using System.Linq;
 
 namespace BalsamiqFlowOverview
 {
@@ -16,6 +15,7 @@ namespace BalsamiqFlowOverview
 			this.screens = screens;
 		}
 
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Minor Code Smell", "S3267:Loops should be simplified with \"LINQ\" expressions", Justification = "<Pending>")]
 		public void CalculateLayout()
 		{
 			var deltaAngle = 2 * Math.PI / screens.Count;
@@ -23,7 +23,6 @@ namespace BalsamiqFlowOverview
 			var angle = 0.0;
 			foreach (var screen in this.screens)
 			{
-				//var screen = pair.Value;
 				var radius = 200;
 				screen.pos.X = 250 + (int)Math.Round(Math.Cos(angle) * radius);
 				screen.pos.Y = 250 + (int)Math.Round(Math.Sin(angle) * radius);
@@ -35,16 +34,11 @@ namespace BalsamiqFlowOverview
 
 		public Rectangle GetBounds()
 		{
-			var rect = new Rectangle();
-
-			foreach (var s in screens)
+			var rect = new Rectangle
 			{
-				// TODO: Left top bounds needed?
-				//rect.X = Math.Min(rect.X, s.pos.X);
-				//rect.Y = Math.Min(rect.Y, s.pos.Y);
-				rect.Width = Math.Max(rect.Width, s.pos.X + 50);
-				rect.Height = Math.Max(rect.Height, s.pos.Y + 50);
-			}
+				Width = screens.Max(s => s.pos.X) + 50,
+				Height = screens.Max(s => s.pos.Y) + 50
+			};
 			return rect;
 		}
 
@@ -107,7 +101,7 @@ namespace BalsamiqFlowOverview
 			sb.AppendLine("	rankdir=LR;");
 			sb.AppendLine("#	concentrate = true;"); // User can uncomment
 			sb.AppendLine("	node [shape = rectangle, style=filled, color=\"0.650 0.200 1.000\"];");
-			
+
 			foreach (var s in screens)
 			{
 				foreach (var link in s.linksToScreens)
