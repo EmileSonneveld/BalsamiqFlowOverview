@@ -17,19 +17,19 @@ namespace BalsamiqFlowOverview
 			{
 				Console.WriteLine("Run the tool like this:");
 				Console.WriteLine();
-				Console.WriteLine("BalsamiqFlowOverview.exe /path/to/balsamiq.bmpr [-graphviz]");
-				Console.WriteLine("    -graphviz to also output the graphviz notation");
+				Console.WriteLine("    BalsamiqFlowOverview.exe /path/to/balsamiq.bmpr [-graphviz]");
 				Console.WriteLine();
-				Console.WriteLine("Files will be outputted in the current directory.");
-				return -666;
+				Console.WriteLine("This will output a 'flow_graph.svg' file in the current directory.");
+				Console.WriteLine("Use -graphviz to also output the graphviz notation: 'flow_graphviz.txt'");
+				return -1;
 			}
 
-			string path = args[0];
-			Console.WriteLine("Path: " + path);
+			string bmprPath = args[0];
+			Console.WriteLine("Path: " + bmprPath);
 			var outputGraphvizFile = args.Contains("-graphviz");
 
-			// A .bmpr file is actually a SQLite database
-			var resources = ParseBmprToResources(path);
+			// Parse the Balsamiq file...
+			var resources = ParseBmprToResources(bmprPath);
 
 			// Link everything...
 			var flowScreens = MakeLinkedFlowScreens(resources);
@@ -54,6 +54,7 @@ namespace BalsamiqFlowOverview
 
 		private static Dictionary<string, Resource> ParseBmprToResources(string bmprPath)
 		{
+			// A .bmpr file is actually a SQLite database
 			var conn = new SQLiteConnection($"Data Source={bmprPath};Version=3;");
 			conn.Open();
 
@@ -64,14 +65,21 @@ namespace BalsamiqFlowOverview
 			var reader = command.ExecuteReader();
 			while (reader.Read())
 			{
-				var id = (string)reader["ID"];
 				var attributesJson = (string)reader["ATTRIBUTES"];
 				var attributes = JsonConvert.DeserializeObject<BalsamiqAttributes>(attributesJson);
 
 				Debug.Assert(attributes != null, nameof(attributes) + " != null");
-				if (attributes.mimeType != "text/vnd.balsamiq.bmml") continue;
+				if (attributes.mimeType != null && attributes.mimeType != "text/vnd.balsamiq.bmml") continue;
 				if (attributes.kind == "symbolLibrary") continue;
 
+				var branchId = (string)reader["BRANCHID"];
+				if (branchId != "Master")
+				{
+					Console.WriteLine("Ignoring an alternate version of a frame");
+					continue;
+				}
+
+				var id = (string)reader["ID"];
 				var dataJson = (string)reader["DATA"];
 				var bmml = JsonConvert.DeserializeObject<BalsamiqBmml>(dataJson);
 				resources.Add(id, new Resource(bmml, attributes));
@@ -129,7 +137,9 @@ namespace BalsamiqFlowOverview
 			return bmml.mockup.controls.control;
 		}
 
-
+		/// <summary>
+		/// Get all hrefs from the control.
+		/// </summary>
 		private static List<string> GetHrefs(Control c)
 		{
 			var ret = new List<string>();
@@ -147,6 +157,9 @@ namespace BalsamiqFlowOverview
 		}
 
 
+		/// <summary>
+		/// Used to find the graphviz program.
+		/// </summary>
 		public static string SearchProgramWhileBubblingUpPath(string relPathFromParentList)
 		{
 			if (relPathFromParentList.StartsWith("/") || relPathFromParentList.StartsWith("\\"))
@@ -173,6 +186,9 @@ namespace BalsamiqFlowOverview
 		}
 
 
+		/// <summary>
+		/// Will run graphviz in a separate procces to generate the SVG content.
+		/// </summary>
 		public static string GraphVizToSvg(string graphCode)
 		{
 			string fileName = Path.GetTempPath() + Guid.NewGuid() + ".svg";
