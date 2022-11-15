@@ -2,9 +2,8 @@
 
 #pragma warning disable IDE1006 // Naming Styles
 
-/// <summary>
-/// http://json2csharp.com/
-/// </summary>
+// Classes used to parse JSON to plain old c# objects.
+// Code generated with: http://json2csharp.com/
 namespace BalsamiqFlowOverview
 {
 	public class Href

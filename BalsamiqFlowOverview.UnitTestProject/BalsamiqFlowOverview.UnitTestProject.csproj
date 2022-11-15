@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="test_data\balsamiq_mockups.bmpr" />
+    <None Include="test_data\example_bmml.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BalsamiqFlowOverview\BalsamiqFlowOverview.csproj">
