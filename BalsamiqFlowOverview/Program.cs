@@ -26,6 +26,10 @@ namespace BalsamiqFlowOverview
 
 			string bmprPath = args[0];
 			Console.WriteLine("Path: " + bmprPath);
+			if (!File.Exists(bmprPath)) {
+				Console.WriteLine("Path not found!");
+				return -1;
+			}
 			var outputGraphvizFile = args.Contains("-graphviz");
 
 			// Parse the Balsamiq file...
@@ -110,18 +114,21 @@ namespace BalsamiqFlowOverview
 				if (!pair.Value.Attributes.trashed)
 				{
 					var controls = GetControls(pair.Value.Bmml);
-					foreach (var control in controls)
+					if (controls != null)
 					{
-						var controlText = control.properties?.text;
-						foreach (var href in GetHrefs(control))
+						foreach (var control in controls)
 						{
-							var fl = new FlowLink();
-							fl.linkName = controlText;
-							if (flowScreens.ContainsKey(href))
-								fl.screen = flowScreens[href];
-							else
-								fl.screen = new FlowScreen("Broken ref: " + href);
-							lst.Add(fl);
+							var controlText = control.properties?.text;
+							foreach (var href in GetHrefs(control))
+							{
+								var fl = new FlowLink();
+								fl.linkName = controlText;
+								if (flowScreens.ContainsKey(href))
+									fl.screen = flowScreens[href];
+								else
+									fl.screen = new FlowScreen("Broken ref: " + href);
+								lst.Add(fl);
+							}
 						}
 					}
 				}

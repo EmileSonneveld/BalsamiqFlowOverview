@@ -49,7 +49,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="test_data\balsamiq_mockups.bmpr" />
+    <None Include="test_data\E-Commerce Template.bmpr" />
     <None Include="test_data\example_bmml.json" />
+    <None Include="test_data\login_example.bmpr" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BalsamiqFlowOverview\BalsamiqFlowOverview.csproj">
@@ -59,10 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MSTest.TestAdapter">
-      <Version>1.1.11</Version>
+      <Version>2.2.10</Version>
     </PackageReference>
     <PackageReference Include="MSTest.TestFramework">
-      <Version>1.1.11</Version>
+      <Version>2.2.10</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.1</Version>

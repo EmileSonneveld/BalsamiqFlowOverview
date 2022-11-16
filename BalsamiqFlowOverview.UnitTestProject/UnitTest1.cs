@@ -23,7 +23,16 @@ namespace BalsamiqFlowOverview.UnitTestProject
 		public void Test_BalsamiqBmml()
 		{
 			var path = Path.Combine(_testDataPath, "balsamiq_mockups.bmpr");
-			Assert.IsTrue(File.Exists(path));
+			var returnValue = Program.Main(new string[] { path, "-graphviz" });
+			Assert.AreEqual(0, returnValue);
+			File.Exists("flow_graphviz.txt");
+			File.Exists("flow_graph.svg");
+		}
+
+		[TestMethod]
+		public void Test_BalsamiqDatagridsBmml()
+		{
+			var path = Path.Combine(_testDataPath, "Advanced Datagrids.bmpr");
 			var returnValue = Program.Main(new string[] { path, "-graphviz" });
 			Assert.AreEqual(0, returnValue);
 			File.Exists("flow_graphviz.txt");
@@ -32,10 +41,19 @@ namespace BalsamiqFlowOverview.UnitTestProject
 
 
 		[TestMethod]
+		public void Test_BalsamiqECommerceBmml()
+		{
+			var path = Path.Combine(_testDataPath, "E-Commerce Template.bmpr");
+			var returnValue = Program.Main(new string[] { path });
+			Assert.AreEqual(0, returnValue);
+			File.Exists("flow_graph.svg");
+		}
+
+
+		[TestMethod]
 		public void Test_BalsamiqLoginExampleBmml()
 		{
 			var path = Path.Combine(_testDataPath, "login_example.bmpr");
-			Assert.IsTrue(File.Exists(path));
 			var returnValue = Program.Main(new string[] { path, "-graphviz" });
 			Assert.AreEqual(0, returnValue);
 
