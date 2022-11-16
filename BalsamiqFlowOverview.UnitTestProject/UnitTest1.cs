@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.CompilerServices;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace BalsamiqFlowOverview.UnitTestProject
@@ -10,14 +11,16 @@ namespace BalsamiqFlowOverview.UnitTestProject
 	[TestClass]
 	public class UnitTest1
 	{
-		private static readonly string _projectDir = Path.GetFullPath(Path.Combine(
-			Directory.GetParent(System.Reflection.Assembly.GetExecutingAssembly().Location).FullName,
-			"../.."
-			));
 		private readonly string _testDataPath = Path.GetFullPath(
-			Path.Combine(_projectDir, "test_data")
+			Path.Combine(GetProjectPath(), "test_data")
 			);
 
+		private static string GetProjectPath([CallerFilePath] string? path = null)
+		{
+			var p = Path.GetDirectoryName(path);
+			Debug.Assert(p != null);
+			return p;
+		}
 
 		[TestMethod]
 		public void Test_BalsamiqBmml()
@@ -58,7 +61,7 @@ namespace BalsamiqFlowOverview.UnitTestProject
 			Assert.AreEqual(0, returnValue);
 
 			// Automatically copy example SVG for readme:
-			string repositoryRoot = Path.GetFullPath(Path.Combine(_projectDir, "../"));
+			string repositoryRoot = Path.GetFullPath(Path.Combine(GetProjectPath(), "../"));
 			File.Copy(
 				Path.Combine(Directory.GetCurrentDirectory(), "flow_graph.svg"),
 				Path.Combine(repositoryRoot, "example_grapviz.svg"),

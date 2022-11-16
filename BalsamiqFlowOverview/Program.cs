@@ -27,6 +27,7 @@ namespace BalsamiqFlowOverview
 			string bmprPath = args[0];
 			Console.WriteLine("Path: " + bmprPath);
 			if (!File.Exists(bmprPath)) {
+				// This check is needed, otherwise SQLite will create an empty file here.
 				Console.WriteLine("Path not found!");
 				return -1;
 			}
