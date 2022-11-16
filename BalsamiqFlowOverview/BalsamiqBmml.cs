@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-#pragma warning disable IDE1006 // Naming Styles
+﻿#pragma warning disable IDE1006 // Naming Styles
 
 // Classes used to parse JSON to plain old c# objects.
 // Code generated with: http://json2csharp.com/

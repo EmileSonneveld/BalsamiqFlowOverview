@@ -1,10 +1,6 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
 
 namespace BalsamiqFlowOverview
 {
@@ -117,7 +113,7 @@ namespace BalsamiqFlowOverview
 					{
 						foreach (var control in controls)
 						{
-							string controlText = (control.properties?.text).ThrowIfNull();
+							var controlText = control.properties?.text;
 							foreach (var href in GetHrefs(control))
 							{
 								var fl = new FlowLink(

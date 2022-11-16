@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace BalsamiqFlowOverview
 {
 	class FlowLink
 	{
-		public readonly string linkName;
+		public readonly string? linkName;
 		public readonly FlowScreen screen;
 
-		public FlowLink(string linkName, FlowScreen screen)
+		public FlowLink(string? linkName, FlowScreen screen)
 		{
 			this.linkName = linkName;
 			this.screen = screen;
