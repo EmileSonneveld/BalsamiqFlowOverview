@@ -26,7 +26,8 @@ namespace BalsamiqFlowOverview
 
 			string bmprPath = args[0];
 			Console.WriteLine("Path: " + bmprPath);
-			if (!File.Exists(bmprPath)) {
+			if (!File.Exists(bmprPath))
+			{
 				// This check is needed, otherwise SQLite will create an empty file here.
 				Console.WriteLine("Path not found!");
 				return -1;
@@ -71,9 +72,8 @@ namespace BalsamiqFlowOverview
 			while (reader.Read())
 			{
 				var attributesJson = (string)reader["ATTRIBUTES"];
-				var attributes = JsonConvert.DeserializeObject<BalsamiqAttributes>(attributesJson);
+				var attributes = JsonConvert.DeserializeObject<BalsamiqAttributes>(attributesJson).ThrowIfNull();
 
-				Debug.Assert(attributes != null, nameof(attributes) + " != null");
 				if (attributes.mimeType != null && attributes.mimeType != "text/vnd.balsamiq.bmml") continue;
 				if (attributes.kind == "symbolLibrary") continue;
 
@@ -86,7 +86,7 @@ namespace BalsamiqFlowOverview
 
 				var id = (string)reader["ID"];
 				var dataJson = (string)reader["DATA"];
-				var bmml = JsonConvert.DeserializeObject<BalsamiqBmml>(dataJson);
+				var bmml = JsonConvert.DeserializeObject<BalsamiqBmml>(dataJson).ThrowIfNull();
 				resources.Add(id, new Resource(bmml, attributes));
 			}
 
@@ -105,13 +105,11 @@ namespace BalsamiqFlowOverview
 			var flowScreens = new Dictionary<string, FlowScreen>();
 			foreach (var pair in resources)
 			{
-				flowScreens.Add(pair.Key, new FlowScreen(pair.Value.Attributes.name));
+				flowScreens.Add(pair.Key, new FlowScreen(pair.Value.Attributes.name.ThrowIfNull()));
 			}
 
 			foreach (var pair in resources)
 			{
-
-				var lst = new List<FlowLink>();
 				if (!pair.Value.Attributes.trashed)
 				{
 					var controls = GetControls(pair.Value.Bmml);
@@ -119,28 +117,27 @@ namespace BalsamiqFlowOverview
 					{
 						foreach (var control in controls)
 						{
-							var controlText = control.properties?.text;
+							string controlText = (control.properties?.text).ThrowIfNull();
 							foreach (var href in GetHrefs(control))
 							{
-								var fl = new FlowLink();
-								fl.linkName = controlText;
-								if (flowScreens.ContainsKey(href))
-									fl.screen = flowScreens[href];
-								else
-									fl.screen = new FlowScreen("Broken ref: " + href);
-								lst.Add(fl);
+								var fl = new FlowLink(
+									controlText,
+									flowScreens.ContainsKey(href) ?
+										flowScreens[href]
+										: new FlowScreen("Broken ref: " + href)
+								);
+								flowScreens[pair.Key].linksToScreens.Add(fl);
 							}
 						}
 					}
 				}
-				flowScreens[pair.Key].linksToScreens = lst;
 			}
 
 			return flowScreens;
 		}
 
 
-		private static List<Control> GetControls(BalsamiqBmml bmml)
+		private static IEnumerable<Control> GetControls(BalsamiqBmml bmml)
 		{
 			return bmml.mockup.controls.control;
 		}
@@ -168,7 +165,7 @@ namespace BalsamiqFlowOverview
 		/// <summary>
 		/// Used to find the graphviz program.
 		/// </summary>
-		public static string SearchProgramWhileBubblingUpPath(string relPathFromParentList)
+		public static string? SearchProgramWhileBubblingUpPath(string relPathFromParentList)
 		{
 			if (relPathFromParentList.StartsWith("/") || relPathFromParentList.StartsWith("\\"))
 				relPathFromParentList = relPathFromParentList.Substring(1);
@@ -205,7 +202,7 @@ namespace BalsamiqFlowOverview
 			tmpInputPath = Path.Combine(tmpInputPath);
 			File.WriteAllText(tmpInputPath, graphCode);
 
-			string dotPath = SearchProgramWhileBubblingUpPath("graphviz-2.38-minimal/dot");
+			string dotPath = SearchProgramWhileBubblingUpPath("graphviz-2.38-minimal/dot").ThrowIfNull();
 			// Add -v parameter to debug dot.exe
 			string arguments = tmpInputPath + " -Tsvg -o " + fileName;
 

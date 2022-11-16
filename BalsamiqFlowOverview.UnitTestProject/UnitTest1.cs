@@ -77,7 +77,6 @@ namespace BalsamiqFlowOverview.UnitTestProject
 			var parsed = JsonConvert.DeserializeObject<BalsamiqBmml>(json);
 			Assert.IsNotNull(parsed);
 			Debug.Assert(parsed.mockup != null);
-			Debug.Assert(Math.Abs(parsed.mockup.controls.control[0].measuredH - 310) < 0.001);
 			var href = parsed.mockup.controls.control[0].properties.hrefs.href[1].ID;
 			Guid.Parse(href); // Should not crash
 			Assert.AreEqual("33915D60-C70E-A976-E11B-791060D6A925", href);

@@ -5,8 +5,14 @@ namespace BalsamiqFlowOverview
 {
 	class FlowLink
 	{
-		public string linkName;
-		public FlowScreen screen;
+		public readonly string linkName;
+		public readonly FlowScreen screen;
+
+		public FlowLink(string linkName, FlowScreen screen)
+		{
+			this.linkName = linkName;
+			this.screen = screen;
+		}
 	}
 
 	class FlowScreen
@@ -17,6 +23,6 @@ namespace BalsamiqFlowOverview
 		}
 		public readonly string name;
 		public Point pos;
-		public List<FlowLink> linksToScreens;
+		public readonly List<FlowLink> linksToScreens = new List<FlowLink>();
 	}
 }

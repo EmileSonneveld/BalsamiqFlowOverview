@@ -4,73 +4,158 @@
 
 // Classes used to parse JSON to plain old c# objects.
 // Code generated with: http://json2csharp.com/
+// Select 'Generate Immutable Classes'
+// Select 'Use Nullable Types'
+// Change the 'Root' object name
 namespace BalsamiqFlowOverview
 {
-	public class Href
-	{
-		/// <summary>
-		/// GUID
-		/// </summary>
-		public string ID { get; set; }
-	}
-
-	public class Hrefs
-	{
-		public List<Href> href { get; set; }
-	}
-
-	public class Src
-	{
-		public int Anchor { get; set; }
-		public string ID { get; set; }
-	}
-
-	public class Properties
-	{
-		public Hrefs hrefs { get; set; }
-		public Href href { get; set; }
-		public string text { get; set; }
-		public Src src { get; set; }
-	}
-
 	public class Control
 	{
-		public string ID { get; set; }
-		public double measuredH { get; set; }
-		public double measuredW { get; set; }
-		public Properties properties { get; set; }
-		/// <summary>
-		/// SiteMap, BlockOfText, BreadCrumbs, ComboBox, DataGrid,
-		/// IconLabel, NumericStepper, PieChart, Map,
-		/// BrowserWindow, Image, LineOfText, Button
-		/// </summary>
-		public string typeID { get; set; }
-		public double x { get; set; }
-		public double y { get; set; }
-		public double zOrder { get; set; }
+		public Control(
+			string ID,
+			string measuredH,
+			string measuredW,
+			Properties properties,
+			string typeID,
+			string x,
+			string y,
+			string zOrder
+		)
+		{
+			this.ID = ID;
+			this.measuredH = measuredH;
+			this.measuredW = measuredW;
+			this.properties = properties;
+			this.typeID = typeID;
+			this.x = x;
+			this.y = y;
+			this.zOrder = zOrder;
+		}
+
+		public string ID { get; }
+		public string measuredH { get; }
+		public string measuredW { get; }
+		public Properties properties { get; }
+		public string typeID { get; }
+		public string x { get; }
+		public string y { get; }
+		public string zOrder { get; }
 	}
 
 	public class Controls
 	{
-		public List<Control> control { get; set; }
+		public Controls(
+			List<Control> control
+		)
+		{
+			this.control = control;
+		}
+
+		public IReadOnlyList<Control> control { get; }
+	}
+
+	public class Href
+	{
+		public Href(
+			string ID,
+			string URL
+		)
+		{
+			this.ID = ID;
+			this.URL = URL;
+		}
+
+		public string ID { get; }
+		public string URL { get; }
+	}
+
+	public class Hrefs
+	{
+		public Hrefs(
+			List<Href> href
+		)
+		{
+			this.href = href;
+		}
+
+		public IReadOnlyList<Href> href { get; }
 	}
 
 	public class Mockup
 	{
-		public Controls controls { get; set; }
-		public double measuredH { get; set; }
-		public double measuredW { get; set; }
-		public double mockupH { get; set; }
-		public double mockupW { get; set; }
-		public double version { get; set; }
+		public Mockup(
+			Controls controls,
+			string measuredH,
+			string measuredW,
+			string mockupH,
+			string mockupW,
+			string version
+		)
+		{
+			this.controls = controls;
+			this.measuredH = measuredH;
+			this.measuredW = measuredW;
+			this.mockupH = mockupH;
+			this.mockupW = mockupW;
+			this.version = version;
+		}
+
+		public Controls controls { get; }
+		public string measuredH { get; }
+		public string measuredW { get; }
+		public string mockupH { get; }
+		public string mockupW { get; }
+		public string version { get; }
 	}
 
-	/// <summary>
-	/// RootObject
-	/// </summary>
+	public class Properties
+	{
+		public Properties(
+			Hrefs hrefs,
+			string text,
+			Src src,
+			Href href
+		)
+		{
+			this.hrefs = hrefs;
+			this.text = text;
+			this.src = src;
+			this.href = href;
+		}
+
+		public Hrefs hrefs { get; }
+		public string text { get; }
+		public Src src { get; }
+		public Href href { get; }
+	}
+
 	public class BalsamiqBmml
 	{
-		public Mockup mockup { get; set; }
+		public BalsamiqBmml(
+			Mockup mockup
+		)
+		{
+			this.mockup = mockup;
+		}
+
+		public Mockup mockup { get; }
 	}
+
+	public class Src
+	{
+		public Src(
+			int? Anchor,
+			string ID
+		)
+		{
+			this.Anchor = Anchor;
+			this.ID = ID;
+		}
+
+		public int? Anchor { get; }
+		public string ID { get; }
+	}
+
+
 }
 #pragma warning restore IDE1006 // Naming Styles
